@@ -1,43 +1,52 @@
 var myParagraph;
 var newParagraph;
-var img
+var img;
 let button;
 let slider;
+let gleep = true;
+let greem = color(100, 230, 50)
 
 function setup() {
-  myParagraph = createP("html");
+   
+  myParagraph = createP("EEP");
   myParagraph.position(0, 0);
   myParagraph.mouseClicked(makeRed);
   newParagraph = createP("gleep");
+//   newParagraph.style("color", greem)
   button = createButton('gloop');
-  button.mouseClicked(changenewParagraph || changePicture);
+  button.mouseClicked(changenewParagraph);
   let img = createImg('https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Alien.png/435px-Alien.png',
   'the alien')
   img.position(200, 100);
   img.size(150, 150)
   slider = createSlider(0, 255, 100)
-  slider.position(30, 260)
-//   let gleep = "glop"
+  slider.position(25, 250)
+createP("ive been screwing around with this thing for hours and i am utterly incapable of understanding it or getting it to do what i want to do im trying my best AHHHHHHHH")
+}
+
+function draw () {
+   myParagraph.position(winMouseX, winMouseY);
+   let val = slider.value();
+   let x = val
+   background(x);
+   newParagraph.style('font-size', 'val')
+   if (gleep) {
+      // newParagraph.style("color", greem)
+   }
+   // newParagraph.style(greem)
 }
 
 function changenewParagraph() {
-   // let val = random(255, 255, 255);
-   newParagraph.style("color", "green")
+   if (gleep) {
+      gleep = false;
+   } else {
+      gleep = true;
+   }
 }
 
-function changePicture() {
-   img.position(250,150);
-}
-
-function draw() {
-  myParagraph.position(winMouseX, winMouseY);
-  let val = slider.value();
-  let x = val
-  background(x);
-  newParagraph.style('font-size', 'val')
-//   textSize(50)
-//   text(gleep, 100, 100)
-}
+// function changePicture() {
+//    img.position(250,150);
+// }
 
 function makeRed() {
   myParagraph.style("color", "red");
